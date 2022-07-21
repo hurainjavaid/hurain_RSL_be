@@ -42,5 +42,8 @@ public class Location {
                 "LocationId=" + locationId +
                 ", LocationName='" + locationName + '\'' +
                 '}';
+
+
+        
     }
 }
