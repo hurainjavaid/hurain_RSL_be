@@ -14,9 +14,9 @@ public class User {
     @Column
     private  Integer LocationId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "LocationId")
-    private Location location;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "LocationId")
+//    private Location location;
 
     public User(Integer userId, String userName, String passwrd) {
         super();
@@ -59,7 +59,7 @@ public class User {
                 ", UserName='" + UserName + '\'' +
                 ", passwrd='" + passwrd + '\'' +
                 ", LocationId=" + LocationId +
-                ", location=" + location +
+
                 '}';
     }
 }

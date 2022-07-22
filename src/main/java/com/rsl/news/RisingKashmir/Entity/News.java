@@ -8,20 +8,13 @@ public class News {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer newsId;
     @Column
-    private  String newsDescription; // use camel case
+    private String newsDescription; // use camel case
     @Column
-    private  String newsDetails;
+    private String newsDetails;
     @Column
-    private  Integer categoryId;
+    private Integer categoryId;
     @Column
     private Integer locationId;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "categoryId")
-    private NewsCategory newsCategory;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "locationId")
-    private Location location;
 
     public Integer getNewsId() {
         return newsId;
@@ -62,21 +55,14 @@ public class News {
     public void setLocationId(Integer locationId) {
         this.locationId = locationId;
     }
-
-    public NewsCategory getNewsCategory() {
-        return newsCategory;
-    }
-
-    public void setNewsCategory(NewsCategory newsCategory) {
-        this.newsCategory = newsCategory;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
 }
+
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "categoryId")
+//    private NewsCategory newsCategory;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "locationId")
+//    private Location location;
+
+
 

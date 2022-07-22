@@ -1,7 +1,8 @@
 package com.rsl.news.RisingKashmir.Service;
 
-import Entity.News;
+import com.rsl.news.RisingKashmir.Entity.News;
 
-public interface NewsService {
+public interface NewsService{
    News saveNews(News saveNews);
 }
+

@@ -1,6 +1,6 @@
 package com.rsl.news.RisingKashmir.Service;
-import Entity.News;
-import Repository.NewsRepository;
+import com.rsl.news.RisingKashmir.Entity.News;
+import com.rsl.news.RisingKashmir.Repository.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

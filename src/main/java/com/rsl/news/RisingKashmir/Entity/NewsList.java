@@ -8,23 +8,24 @@ public class NewsList {
    @GeneratedValue(strategy = GenerationType.SEQUENCE)
    private Integer newslistId;
    @Column
-   private Integer categoryID;
+   private Integer categoryId;
    @Column
    private Integer newsId;
 
-   @OneToOne(cascade = CascadeType.ALL)
-   @JoinColumn(name = "categoryId")
-   private NewsCategory newscategory;
+//   @OneToOne(cascade = CascadeType.ALL)
+//   @JoinColumn(name = "categoryId")
+//   private NewsCategory newscategory;
+//
+//   @OneToOne(cascade = CascadeType.ALL)
+//   @JoinColumn(name = "newsId")
+//   private News news;
 
-   @OneToOne(cascade = CascadeType.ALL)
-   @JoinColumn(name = "newsId")
-   private News news;
 
-   public NewsList(Integer newslistId, Integer categoryID, Integer newsId) {
+   public NewsList(Integer newslistId, Integer categoryId, Integer newsId) {
       super();
-      newslistId = newslistId;
-      categoryID = categoryID;
-      newsId = newsId;
+      this.newslistId = newslistId;
+      this.categoryId = categoryId;
+      this.newsId = newsId;
    }
    public NewsList(){
       super();
@@ -38,12 +39,12 @@ public class NewsList {
       this.newslistId = newslistId;
    }
 
-   public Integer getCategoryID() {
-      return categoryID;
+   public Integer getCategoryId() {
+      return categoryId;
    }
 
-   public void setCategoryID(Integer categoryID) {
-      this.categoryID = categoryID;
+   public void setCategoryId(Integer categoryId) {
+      this.categoryId = categoryId;
    }
 
    public Integer getNewsId() {
@@ -54,31 +55,14 @@ public class NewsList {
       this.newsId = newsId;
    }
 
-   public NewsCategory getNewscategory() {
-      return newscategory;
-   }
-
-   public void setNewscategory(NewsCategory newscategory) {
-      this.newscategory = newscategory;
-   }
-
-   public News getNews() {
-      return news;
-   }
-
-   public void setNews(News news) {
-      this.news = news;
-   }
-
    @Override
    public String toString() {
       return "NewsList{" +
               "newslistId=" + newslistId +
-              ", categoryID=" + categoryID +
+              ", categoryId=" + categoryId +
               ", newsId=" + newsId +
-              ", newscategory=" + newscategory +
-              ", news=" + news +
               '}';
    }
 }
+
 
