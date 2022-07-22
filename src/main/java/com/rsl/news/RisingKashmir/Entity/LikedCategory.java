@@ -1,4 +1,4 @@
-package Entity;
+package com.rsl.news.RisingKashmir.Entity;
 
 import javax.persistence.*;
 
