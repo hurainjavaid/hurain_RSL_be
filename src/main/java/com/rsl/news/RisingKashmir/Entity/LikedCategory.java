@@ -12,13 +12,13 @@ public class LikedCategory {
     @Column
     private Integer CategoryId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "UserId")
-    private User user;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "UserId")
+//    private User user;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CategoryId")
-    private NewsCategory news_category;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "CategoryId")
+//    private NewsCategory news_category;
 
     public LikedCategory(Integer likedCategoryId, Integer userId, Integer categoryId) {
         super();
@@ -60,8 +60,6 @@ public class LikedCategory {
                 "LikedCategoryId=" + LikedCategoryId +
                 ", UserId=" + UserId +
                 ", CategoryId=" + CategoryId +
-                ", user=" + user +
-                ", news_category=" + news_category +
                 '}';
     }
 }
