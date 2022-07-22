@@ -6,62 +6,79 @@ import javax.persistence.*;
 public class NewsList {
    @Id
    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-   private Integer NewslistId;
+   private Integer newslistId;
    @Column
-   private Integer CategoryID;
+   private Integer categoryID;
    @Column
-   private Integer NewsId;
+   private Integer newsId;
 
    @OneToOne(cascade = CascadeType.ALL)
-   @JoinColumn(name = "CategoryId")
+   @JoinColumn(name = "categoryId")
    private NewsCategory newscategory;
 
    @OneToOne(cascade = CascadeType.ALL)
-   @JoinColumn(name = "NewsId")
+   @JoinColumn(name = "newsId")
    private News news;
 
    public NewsList(Integer newslistId, Integer categoryID, Integer newsId) {
       super();
-      NewslistId = newslistId;
-      CategoryID = categoryID;
-      NewsId = newsId;
+      newslistId = newslistId;
+      categoryID = categoryID;
+      newsId = newsId;
    }
    public NewsList(){
       super();
    }
 
    public Integer getNewslistId() {
-      return NewslistId;
+      return newslistId;
    }
 
    public void setNewslistId(Integer newslistId) {
-      NewslistId = newslistId;
+      this.newslistId = newslistId;
    }
 
    public Integer getCategoryID() {
-      return CategoryID;
+      return categoryID;
    }
 
    public void setCategoryID(Integer categoryID) {
-      CategoryID = categoryID;
+      this.categoryID = categoryID;
    }
 
    public Integer getNewsId() {
-      return NewsId;
+      return newsId;
    }
 
    public void setNewsId(Integer newsId) {
-      NewsId = newsId;
+      this.newsId = newsId;
+   }
+
+   public NewsCategory getNewscategory() {
+      return newscategory;
+   }
+
+   public void setNewscategory(NewsCategory newscategory) {
+      this.newscategory = newscategory;
+   }
+
+   public News getNews() {
+      return news;
+   }
+
+   public void setNews(News news) {
+      this.news = news;
    }
 
    @Override
    public String toString() {
-      return "News_List{" +
-              "NewslistId=" + NewslistId +
-              ", CategoryID=" + CategoryID +
-              ", NewsId=" + NewsId +
-              ", news_category=" + newscategory +
+      return "NewsList{" +
+              "newslistId=" + newslistId +
+              ", categoryID=" + categoryID +
+              ", newsId=" + newsId +
+              ", newscategory=" + newscategory +
               ", news=" + news +
               '}';
    }
 }
+
