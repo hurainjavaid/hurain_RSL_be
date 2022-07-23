@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class LikedCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer LikedcategoryId;
+    private Integer id;
     @Column
     private  Integer userId;
     @Column
@@ -20,26 +20,24 @@ public class LikedCategory {
     @JoinColumn(name = "categoryId")
     private NewsCategory news_category;
 
-
-    public LikedCategory(Integer likedcategoryId, Integer userId, Integer categoryId, User user, NewsCategory news_category) {
+    public LikedCategory(Integer id, Integer userId, Integer categoryId, User user, NewsCategory news_category) {
         super();
-        LikedcategoryId = likedcategoryId;
+        this.id = id;
         this.userId = userId;
         this.categoryId = categoryId;
         this.user = user;
         this.news_category = news_category;
     }
-
     public LikedCategory(){
         super();
     }
 
-    public Integer getLikedcategoryId() {
-        return LikedcategoryId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setLikedcategoryId(Integer likedcategoryId) {
-        LikedcategoryId = likedcategoryId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getUserId() {
@@ -77,7 +75,7 @@ public class LikedCategory {
     @Override
     public String toString() {
         return "LikedCategory{" +
-                "LikedcategoryId=" + LikedcategoryId +
+                "id=" + id +
                 ", userId=" + userId +
                 ", categoryId=" + categoryId +
                 ", user=" + user +

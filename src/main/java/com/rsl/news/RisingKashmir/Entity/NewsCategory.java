@@ -6,25 +6,25 @@ import javax.persistence.*;
 public class NewsCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer categoryId;
+    private Integer id;
     @Column
      private String categoryType;
 
-    public NewsCategory(Integer categoryId, String categoryType) {
+    public NewsCategory(Integer id, String categoryType) {
         super();
-        this.categoryId = categoryId;
+        this.id = id;
         this.categoryType = categoryType;
     }
     public NewsCategory(){
         super();
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCategoryType() {
@@ -38,7 +38,7 @@ public class NewsCategory {
     @Override
     public String toString() {
         return "NewsCategory{" +
-                "categoryId=" + categoryId +
+                "id=" + id +
                 ", categoryType='" + categoryType + '\'' +
                 '}';
     }

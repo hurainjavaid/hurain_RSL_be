@@ -6,11 +6,11 @@ import javax.persistence.*;
 public class Liked {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private  Integer LikedId;
+    private Integer id;
     @Column
     private Integer UserId;
     @Column
-    private  Integer NewsId;
+    private Integer NewsId;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "NewsId")
@@ -20,37 +20,24 @@ public class Liked {
     @JoinColumn(name = "UserId")
     private User user;
 
-    public News getNews() {
-        return news;
-    }
-
-    public void setNews(News news) {
-        this.news = news;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Liked(Integer likedId, Integer userId, Integer newsId, News news, User user) {
+    public Liked(Integer id, Integer userId, Integer newsId, News news, User user) {
         super();
-        LikedId = likedId;
+        this.id = id;
         UserId = userId;
         NewsId = newsId;
         this.news = news;
         this.user = user;
     }
-
-    public Integer getLikedId() {
-        return LikedId;
+    public  Liked(){
+        super();
     }
 
-    public void setLikedId(Integer likedId) {
-        LikedId = likedId;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getUserId() {
@@ -69,10 +56,26 @@ public class Liked {
         NewsId = newsId;
     }
 
+    public News getNews() {
+        return news;
+    }
+
+    public void setNews(News news) {
+        this.news = news;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Liked{" +
-                "LikedId=" + LikedId +
+                "id=" + id +
                 ", UserId=" + UserId +
                 ", NewsId=" + NewsId +
                 ", news=" + news +

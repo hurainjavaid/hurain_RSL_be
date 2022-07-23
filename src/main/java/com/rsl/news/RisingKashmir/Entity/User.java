@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer userId;
+    private Integer id;
     @Column
     private  String UserName;
     @Column
@@ -18,41 +18,24 @@ public class User {
     @JoinColumn(name = "locationId")
     private Location location;
 
-    public User(Integer userId, String userName, String passwrd, Integer locationId, Location location) {
+    public User(Integer id, String userName, String passwrd, Integer locationId, Location location) {
         super();
-        userId = userId;
+        this.id = id;
         UserName = userName;
         this.passwrd = passwrd;
         this.locationId = locationId;
         this.location = location;
     }
-
     public User(){
         super();
     }
 
-    public Integer getLocationId() {
-        return locationId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setLocationId(Integer locationId) {
-        this.locationId = locationId;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        userId = userId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -71,10 +54,26 @@ public class User {
         this.passwrd = passwrd;
     }
 
+    public Integer getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(Integer locationId) {
+        this.locationId = locationId;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "UserId=" + userId +
+                "id=" + id +
                 ", UserName='" + UserName + '\'' +
                 ", passwrd='" + passwrd + '\'' +
                 ", locationId=" + locationId +

@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer newsId;
+    private Integer id;
     @Column
     private String newsDescription;
     @Column
@@ -23,28 +23,12 @@ public class News {
     @JoinColumn(name = "locationId")
     private Location location;
 
-    public NewsCategory getNewsCategory() {
-        return newsCategory;
+    public Integer getId() {
+        return id;
     }
 
-    public void setNewsCategory(NewsCategory newsCategory) {
-        this.newsCategory = newsCategory;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public Integer getNewsId() {
-        return newsId;
-    }
-
-    public void setNewsId(Integer newsId) {
-        this.newsId = newsId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNewsDescription() {
@@ -77,6 +61,22 @@ public class News {
 
     public void setLocationId(Integer locationId) {
         this.locationId = locationId;
+    }
+
+    public NewsCategory getNewsCategory() {
+        return newsCategory;
+    }
+
+    public void setNewsCategory(NewsCategory newsCategory) {
+        this.newsCategory = newsCategory;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }
 
