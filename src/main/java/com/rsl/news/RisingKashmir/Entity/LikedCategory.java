@@ -6,11 +6,11 @@ import javax.persistence.*;
 public class LikedCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer LikedCategoryId;
+    private Integer LikedcategoryId;
     @Column
     private  Integer userId;
     @Column
-    private Integer CategoryId;
+    private Integer categoryId;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userId")
@@ -20,17 +20,42 @@ public class LikedCategory {
     @JoinColumn(name = "categoryId")
     private NewsCategory news_category;
 
-    public LikedCategory(Integer likedCategoryId, Integer userId, Integer categoryId, User user, NewsCategory news_category) {
+
+    public LikedCategory(Integer likedcategoryId, Integer userId, Integer categoryId, User user, NewsCategory news_category) {
         super();
-        LikedCategoryId = likedCategoryId;
+        LikedcategoryId = likedcategoryId;
         this.userId = userId;
-        CategoryId = categoryId;
+        this.categoryId = categoryId;
         this.user = user;
         this.news_category = news_category;
     }
 
     public LikedCategory(){
         super();
+    }
+
+    public Integer getLikedcategoryId() {
+        return LikedcategoryId;
+    }
+
+    public void setLikedcategoryId(Integer likedcategoryId) {
+        LikedcategoryId = likedcategoryId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
     public User getUser() {
@@ -49,36 +74,12 @@ public class LikedCategory {
         this.news_category = news_category;
     }
 
-    public Integer getLikedCategoryId() {
-        return LikedCategoryId;
-    }
-
-    public void setLikedCategoryId(Integer likedCategoryId) {
-        LikedCategoryId = likedCategoryId;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        userId = userId;
-    }
-
-    public Integer getCategoryId() {
-        return CategoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        CategoryId = categoryId;
-    }
-
     @Override
     public String toString() {
         return "LikedCategory{" +
-                "LikedCategoryId=" + LikedCategoryId +
+                "LikedcategoryId=" + LikedcategoryId +
                 ", userId=" + userId +
-                ", CategoryId=" + CategoryId +
+                ", categoryId=" + categoryId +
                 ", user=" + user +
                 ", news_category=" + news_category +
                 '}';
