@@ -6,34 +6,53 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer UserId;
+    private Integer userId;
     @Column
     private  String UserName;
     @Column
     private String passwrd;
     @Column
-    private  Integer LocationId;
+    private  Integer locationId;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "LocationId")
-//    private Location location;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "locationId")
+    private Location location;
 
-    public User(Integer userId, String userName, String passwrd) {
+    public User(Integer userId, String userName, String passwrd, Integer locationId, Location location) {
         super();
-        UserId = userId;
+        userId = userId;
         UserName = userName;
         this.passwrd = passwrd;
+        this.locationId = locationId;
+        this.location = location;
     }
+
     public User(){
         super();
     }
 
+    public Integer getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(Integer locationId) {
+        this.locationId = locationId;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     public Integer getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(Integer userId) {
-        UserId = userId;
+        userId = userId;
     }
 
     public String getUserName() {
@@ -55,11 +74,11 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "UserId=" + UserId +
+                "UserId=" + userId +
                 ", UserName='" + UserName + '\'' +
                 ", passwrd='" + passwrd + '\'' +
-                ", LocationId=" + LocationId +
-
+                ", locationId=" + locationId +
+                ", location=" + location +
                 '}';
     }
 }

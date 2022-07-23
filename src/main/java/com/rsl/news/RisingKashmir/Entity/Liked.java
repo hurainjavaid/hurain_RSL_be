@@ -12,19 +12,37 @@ public class Liked {
     @Column
     private  Integer NewsId;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "NewsId")
-//    private News news;
-//
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "UserId")
-//    private User user;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "NewsId")
+    private News news;
 
-    public Liked(Integer likedId, Integer userId, Integer newsId) {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "UserId")
+    private User user;
+
+    public News getNews() {
+        return news;
+    }
+
+    public void setNews(News news) {
+        this.news = news;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Liked(Integer likedId, Integer userId, Integer newsId, News news, User user) {
         super();
         LikedId = likedId;
         UserId = userId;
         NewsId = newsId;
+        this.news = news;
+        this.user = user;
     }
 
     public Integer getLikedId() {
@@ -57,6 +75,8 @@ public class Liked {
                 "LikedId=" + LikedId +
                 ", UserId=" + UserId +
                 ", NewsId=" + NewsId +
+                ", news=" + news +
+                ", user=" + user +
                 '}';
     }
 }
