@@ -13,12 +13,12 @@ public class News {
     private String newsDetails;
     @Column
     private Integer categoryId;
-    @Column
-    private Integer locationId;
+//    @Column
+//    private Integer locationId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "categoryId")
-    private NewsCategory newsCategory;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "categoryId")
+//    private NewsCategory newsCategory;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "locationId")
     private Location location;
@@ -55,21 +55,8 @@ public class News {
         this.categoryId = categoryId;
     }
 
-    public Integer getLocationId() {
-        return locationId;
-    }
 
-    public void setLocationId(Integer locationId) {
-        this.locationId = locationId;
-    }
 
-    public NewsCategory getNewsCategory() {
-        return newsCategory;
-    }
-
-    public void setNewsCategory(NewsCategory newsCategory) {
-        this.newsCategory = newsCategory;
-    }
 
     public Location getLocation() {
         return location;

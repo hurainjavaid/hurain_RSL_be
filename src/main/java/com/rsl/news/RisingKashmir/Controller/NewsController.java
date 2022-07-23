@@ -19,6 +19,4 @@ public class NewsController {
         return  ResponseEntity.status(HttpStatus.OK).body(newsService.saveNews(save));
     }
 
-
-
 }

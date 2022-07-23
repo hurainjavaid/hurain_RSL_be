@@ -11,20 +11,18 @@ public class User {
     private  String UserName;
     @Column
     private String passwrd;
-    @Column
-    private  Integer locationId;
+//    @Column
+//    private  Integer locationId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "locationId")
-    private Location location;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "locationId")
+//    private Location location;
 
     public User(Integer id, String userName, String passwrd, Integer locationId, Location location) {
         super();
         this.id = id;
         UserName = userName;
         this.passwrd = passwrd;
-        this.locationId = locationId;
-        this.location = location;
     }
     public User(){
         super();
@@ -54,30 +52,12 @@ public class User {
         this.passwrd = passwrd;
     }
 
-    public Integer getLocationId() {
-        return locationId;
-    }
-
-    public void setLocationId(Integer locationId) {
-        this.locationId = locationId;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", UserName='" + UserName + '\'' +
                 ", passwrd='" + passwrd + '\'' +
-                ", locationId=" + locationId +
-                ", location=" + location +
                 '}';
     }
 }
