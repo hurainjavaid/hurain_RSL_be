@@ -4,10 +4,7 @@ import com.rsl.news.RisingKashmir.Service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/news")
@@ -17,6 +14,22 @@ public class NewsController {
     @PostMapping("/news")
     public ResponseEntity save(@RequestBody News save){
         return  ResponseEntity.status(HttpStatus.OK).body(newsService.saveNews(save));
+    }
+
+    @GetMapping("/get-news/{id}")
+        public ResponseEntity getnews(@PathVariable Integer id) {
+        return ResponseEntity.status(HttpStatus.OK).body(newsService.getNewsById(id));
+    }
+
+    @PutMapping("/update-news/{id}")
+    public ResponseEntity save(@RequestBody News updateNews, @PathVariable Integer id){
+       return ResponseEntity.status(HttpStatus.OK).body(newsService.updateNews(id,updateNews));
+    }
+
+    @DeleteMapping("/delete-news/{id}")
+    public ResponseEntity deleteNews(@PathVariable Integer id){
+        return  ResponseEntity.status(HttpStatus.OK).body(newsService.deleteNews(id));
+
     }
 
 }
