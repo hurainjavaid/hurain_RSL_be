@@ -6,25 +6,26 @@ import javax.persistence.*;
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer locationId;
+    private Integer id;
     @Column
     private  String locationName;
 
-    public Location(Integer locationId, String locationName) {
+    public Location(Integer id, String locationName) {
         super();
-        locationId = locationId;
-        locationName = locationName;
+        this.id = id;
+        this.locationName = locationName;
     }
+
     public Location(){
         super();
     }
 
-    public Integer getLocationId() {
-        return locationId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setLocationId(Integer locationId) {
-        locationId = locationId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLocationName() {
@@ -32,18 +33,14 @@ public class Location {
     }
 
     public void setLocationName(String locationName) {
-        locationName = locationName;
+        this.locationName = locationName;
     }
-    
 
     @Override
     public String toString() {
         return "Location{" +
-                "LocationId=" + locationId +
-                ", LocationName='" + locationName + '\'' +
+                "id=" + id +
+                ", locationName='" + locationName + '\'' +
                 '}';
-
-
-
     }
 }
