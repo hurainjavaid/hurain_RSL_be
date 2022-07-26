@@ -1,5 +1,7 @@
 package com.rsl.news.RisingKashmir.Service;
+import com.rsl.news.RisingKashmir.Entity.Location;
 import com.rsl.news.RisingKashmir.Entity.News;
+import com.rsl.news.RisingKashmir.Repository.LocationRepository;
 import com.rsl.news.RisingKashmir.Repository.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,11 +13,19 @@ import java.util.Optional;
 public class NewsServiceImpl implements NewsService {
     @Autowired
     NewsRepository newsRepository;
+    @Autowired
+    LocationRepository locationRepository;
 
     @Override
     public News saveNews(News saveNews) {
-        News news = newsRepository.save(saveNews);
-        return news;
+        Location location = locationRepository.findById(saveNews.getLocation().getId()).get();
+        if(location != null){
+            News savenews1= newsRepository.save(saveNews);
+            return savenews1;
+        }else {
+            throw new RuntimeException("not found");
+        }
+
     }
 
     @Override

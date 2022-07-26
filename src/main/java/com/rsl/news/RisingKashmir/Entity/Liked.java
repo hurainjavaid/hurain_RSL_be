@@ -12,11 +12,11 @@ public class Liked {
 //    @Column
 //    private Integer NewsId;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "NewsId")
     private News news;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "UserId")
     private User user;
 

@@ -12,14 +12,16 @@ public class News {
     @Column
     private String newsDetails;
     @Column
+    private String newsTitle;
+    @Column
     private Integer categoryId;
 //    @Column
 //    private Integer locationId;
 
-//    @OneToOne(cascade = CascadeType.ALL)
+    //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "categoryId")
 //    private NewsCategory newsCategory;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "locationId")
     private Location location;
 
@@ -47,6 +49,14 @@ public class News {
         this.newsDetails = newsDetails;
     }
 
+    public String getNewsTitle() {
+        return newsTitle;
+    }
+
+    public void setNewsTitle(String newsTitle) {
+        this.newsTitle = newsTitle;
+    }
+
     public Integer getCategoryId() {
         return categoryId;
     }
@@ -54,9 +64,6 @@ public class News {
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
-
-
-
 
     public Location getLocation() {
         return location;
