@@ -1,8 +1,11 @@
 package com.rsl.news.RisingKashmir.Service;
 import com.rsl.news.RisingKashmir.Entity.Location;
 import com.rsl.news.RisingKashmir.Entity.News;
+import com.rsl.news.RisingKashmir.Entity.NewsCategory;
 import com.rsl.news.RisingKashmir.Repository.LocationRepository;
+import com.rsl.news.RisingKashmir.Repository.NewsCategoryRepository;
 import com.rsl.news.RisingKashmir.Repository.NewsRepository;
+import jdk.jfr.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,16 +19,24 @@ public class NewsServiceImpl implements NewsService {
     @Autowired
     LocationRepository locationRepository;
 
+    @Autowired
+    NewsCategoryRepository newsCategoryRepository;
+
     @Override
     public News saveNews(News saveNews) {
+
+//        NewsCategory newsCategory= newsCategoryRepository.findById(saveNews.getCategoryId()).get();
+//        saveNews.setCategoryId(saveNews.getCategoryId());
+
+
         Location location = locationRepository.findById(saveNews.getLocation().getId()).get();
-        if(location != null){
-            News savenews1= newsRepository.save(saveNews);
+        if (location != null) {
+            saveNews.setLocation(location);
+            News savenews1 = newsRepository.save(saveNews);
             return savenews1;
-        }else {
-            throw new RuntimeException("not found");
         }
 
+return null;
     }
 
     @Override
@@ -51,6 +62,9 @@ public class NewsServiceImpl implements NewsService {
             }
             if(updateNews.getCategoryId()!=null) {
                 news.setCategoryId(updateNews.getCategoryId());
+            }
+            if (updateNews.getNewsTitle() != null){
+                news.setNewsDetails(updateNews.getNewsTitle());
             }
             return newsRepository.save(news);
         }
