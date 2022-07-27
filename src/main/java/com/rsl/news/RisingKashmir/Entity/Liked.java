@@ -7,8 +7,8 @@ public class Liked {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-//    @Column
-//    private Integer UserId;
+    @Column
+    private Integer UserId;
 //    @Column
 //    private Integer NewsId;
 
@@ -16,16 +16,18 @@ public class Liked {
     @JoinColumn(name = "NewsId")
     private News news;
 
-    @OneToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "UserId")
-    private User user;
+//    @OneToOne(cascade = CascadeType.MERGE)
+//    @JoinColumn(name = "UserId")
+//    private User user;
 
-    public Liked(Integer id, Integer userId, Integer newsId, News news, User user) {
+
+    public Liked(Integer id, Integer userId, News news) {
         super();
         this.id = id;
+        UserId = userId;
         this.news = news;
-        this.user = user;
     }
+
     public  Liked(){
         super();
     }
@@ -48,20 +50,20 @@ public class Liked {
         this.news = news;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUserId() {
+        return UserId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Integer userId) {
+        UserId = userId;
     }
 
     @Override
     public String toString() {
         return "Liked{" +
                 "id=" + id +
+                ", UserId=" + UserId +
                 ", news=" + news +
-                ", user=" + user +
                 '}';
     }
 }
