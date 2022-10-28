@@ -20,6 +20,10 @@ public class NewsController {
         public ResponseEntity getnews(@PathVariable Integer id) {
         return ResponseEntity.status(HttpStatus.OK).body(newsService.getNewsById(id));
     }
+  @GetMapping("/get-all-news/{id}")
+  public ResponseEntity getnews(){
+        return ResponseEntity.status(HttpStatus.OK).body(newsService.getAllNews());
+  }
 
     @PutMapping("/update-news/{id}")
     public ResponseEntity save(@RequestBody News updateNews, @PathVariable Integer id){
@@ -29,7 +33,8 @@ public class NewsController {
     @DeleteMapping("/delete-news/{id}")
     public ResponseEntity deleteNews(@PathVariable Integer id){
         return  ResponseEntity.status(HttpStatus.OK).body(newsService.deleteNews(id));
-
     }
+
+
 
 }

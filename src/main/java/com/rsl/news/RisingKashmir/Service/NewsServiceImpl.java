@@ -36,7 +36,7 @@ public class NewsServiceImpl implements NewsService {
             return savenews1;
         }
 
-return null;
+        return null;
     }
 
     @Override
@@ -64,8 +64,11 @@ return null;
                 news.setCategoryId(updateNews.getCategoryId());
             }
             if (updateNews.getNewsTitle() != null){
-                news.setNewsDetails(updateNews.getNewsTitle());
+                news.setNewsTitle(updateNews.getNewsTitle());
             }
+//            if(updateNews.getLocation() != null){
+//                news.setLocation(updateNews.getLocation());
+//            }
             return newsRepository.save(news);
         }
         return null;
@@ -75,6 +78,10 @@ return null;
     public Boolean deleteNews(Integer id) {
         Optional<News>news = newsRepository.findById(id);
         if(news.isPresent()){
+            //TODO
+            // get liked new by newsId
+            // delete likedNews
+
             newsRepository.deleteById(id);
             return  true;
         }

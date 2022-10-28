@@ -22,6 +22,10 @@ public class LikedCategoryController {
     public  ResponseEntity getlikedcategory(@PathVariable Integer id){
         return ResponseEntity.status(HttpStatus.OK).body(likedCategoryService.getLikedCategoryById(id));
     }
+    @GetMapping("/get-all-likedcategory/{id}")
+    public ResponseEntity getlikedcategory(){
+        return ResponseEntity.status(HttpStatus.OK).body(likedCategoryService.getALLLikedCategory());
+    }
 
     @PutMapping("/update-likedcategory/{id}")
     public ResponseEntity save(@RequestBody LikedCategory updatelikedcategory,@PathVariable Integer id){

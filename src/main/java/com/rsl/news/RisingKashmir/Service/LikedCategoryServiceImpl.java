@@ -55,9 +55,9 @@ public class LikedCategoryServiceImpl implements LikedCategoryService {
             if (updateLikedCategory.getCategoryId() != null){
                 likedCategory.setCategoryId(updateLikedCategory.getCategoryId());
             }
-//            if (updateLikedCategory.getUser() != null){
-//                likedCategory.setUser(updateLikedCategory.getUser());
-//            }
+            if (updateLikedCategory.getUser() != null){
+                likedCategory.setUser(updateLikedCategory.getUser());
+           }
         }
         return null;
     }

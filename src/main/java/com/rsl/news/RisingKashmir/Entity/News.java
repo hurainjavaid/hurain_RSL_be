@@ -21,7 +21,7 @@ public class News {
     //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "categoryId")
 //    private NewsCategory newsCategory;
-    @OneToOne(cascade = CascadeType.MERGE)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "locationId")
     private Location location;
 
